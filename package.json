@@ -8,13 +8,25 @@
     "preview": "astro preview",
     "lint": "astro check",
     "test": "node --test tests/smoke.test.mjs",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:debug": "playwright test --debug",
+    "test:pact:consumer": "vitest run --config vitest.config.pact.ts",
+    "publish:pact": ". ./scripts/env-setup.sh && ./scripts/publish-pact.sh",
+    "can:i:deploy:consumer": ". ./scripts/env-setup.sh && PACTICIPANT=blog-web ./scripts/can-i-deploy.sh",
+    "record:consumer:deployment": ". ./scripts/env-setup.sh && PACTICIPANT=blog-web ./scripts/record-deployment.sh",
     "astro": "astro"
   },
   "dependencies": {
     "astro": "^5.17.1"
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.9.0",
+    "@pact-foundation/pact": "^15.0.1",
+    "@pact-foundation/pact-node": "^10.18.0",
+    "@playwright/test": "^1.54.2",
     "@astrojs/check": "^0.9.6",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
   }
 }
