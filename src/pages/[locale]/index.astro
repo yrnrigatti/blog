@@ -1,0 +1,23 @@
+---
+import { SUPPORTED_LOCALES } from "../../config/locales";
+
+export function getStaticPaths() {
+  return SUPPORTED_LOCALES.map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+---
+
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Artifact Blog Baseline</title>
+  </head>
+  <body>
+    <main>
+      <h1>Artifact Blog Baseline</h1>
+      <p>Locale route is active for: {locale}</p>
+    </main>
+  </body>
+</html>

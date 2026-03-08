@@ -1,0 +1,186 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UX Design Directions - blog</title>
+  <style>
+    :root {
+      --bg: #0B0D10;
+      --surface: #111418;
+      --elev: #171B21;
+      --text: #E6EAF2;
+      --muted: #9CA6BA;
+      --primary: #4C6FFF;
+      --primary2: #5B7CFF;
+      --accent: #22D3EE;
+      --ok: #22D3EE;
+      --border: #2A3140;
+      --danger: #FF6B81;
+      --radius: 12px;
+      --space-1: 8px;
+      --space-2: 16px;
+      --space-3: 24px;
+      --space-4: 32px;
+      --space-5: 48px;
+      --space-6: 64px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --sans: Inter, Manrope, Geist, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(1200px 600px at 80% -20%, rgba(76,111,255,.18), transparent), var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.5;
+    }
+    a { color: var(--primary2); text-underline-offset: 3px; }
+    .wrap { max-width: 1320px; margin: 0 auto; padding: var(--space-4); }
+    .hero {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.02), transparent), var(--surface);
+      padding: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
+    .hero h1 { margin: 0 0 var(--space-1); font-size: 2rem; }
+    .hero p { margin: 0; color: var(--muted); }
+    .toolbar { display: flex; gap: var(--space-1); flex-wrap: wrap; margin-top: var(--space-3); }
+    button {
+      background: var(--elev);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font: inherit;
+    }
+    button.active, button:hover { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(76,111,255,.2) inset; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--space-3); }
+    @media (max-width: 1000px) { .grid { grid-template-columns: 1fr; } .wrap { padding: var(--space-2); } }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .card:hover { transform: translateY(-2px); border-color: var(--primary); }
+    .card-head {
+      padding: var(--space-2) var(--space-3);
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(90deg, rgba(76,111,255,.14), rgba(34,211,238,.08));
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .tag { font: 600 12px var(--mono); color: var(--accent); letter-spacing: .04em; }
+    .preview { padding: var(--space-2); background: #0f1217; }
+
+    .mock {
+      min-height: 340px;
+      border: 1px solid #202736;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #0d1016;
+    }
+    .topbar { height: 42px; border-bottom: 1px solid #202736; display: flex; align-items: center; gap: 8px; padding: 0 12px; }
+    .dot { width: 8px; height: 8px; border-radius: 999px; background: #3b455c; }
+    .layout { display: grid; min-height: 298px; }
+    .side { border-right: 1px solid #202736; background: #0b0f15; padding: 10px; }
+    .main { padding: 12px; }
+    .panel { border-left: 1px solid #202736; background: #0b0f15; padding: 10px; }
+    .block { border: 1px solid #2b3347; border-radius: 8px; padding: 10px; margin-bottom: 10px; background: #121722; }
+    .line { height: 8px; border-radius: 99px; background: #2e3950; margin: 6px 0; }
+    .line.s { width: 38%; }
+    .line.m { width: 62%; }
+    .line.l { width: 88%; }
+    .pill { display: inline-block; font: 600 11px var(--mono); padding: 4px 7px; border-radius: 999px; border: 1px solid #32405a; color: #9fc1ff; margin-right: 6px; }
+    .accent { border-color: rgba(34,211,238,.45); box-shadow: 0 0 0 1px rgba(34,211,238,.25) inset; }
+
+    .meta { padding: 0 var(--space-3) var(--space-2); color: var(--muted); font-size: 14px; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>blog - Design Directions Showcase</h1>
+      <p>8 visual directions aligned to artifact-first UX, proof-path navigation, and technical credibility goals.</p>
+      <div class="toolbar" id="filters">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="dense">Dense</button>
+        <button data-filter="balanced">Balanced</button>
+        <button data-filter="editorial">Editorial</button>
+      </div>
+    </section>
+
+    <section class="grid" id="grid">
+      <article class="card" data-kind="balanced">
+        <header class="card-head"><strong>Direction 01: Evidenced Minimal</strong><span class="tag">BALANCED</span></header>
+        <div class="preview"><div class="mock"><div class="topbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="pill">/proof</span></div><div class="layout" style="grid-template-columns: 2fr 7fr 3fr"><aside class="side"><div class="line m"></div><div class="line s"></div><div class="line m"></div></aside><main class="main"><div class="block accent"><span class="pill">Architecture</span><span class="pill">ADR</span><span class="pill">Repo</span><div class="line l"></div><div class="line m"></div></div><div class="block"><div class="line l"></div><div class="line l"></div><div class="line s"></div></div></main><aside class="panel"><div class="line m"></div><div class="line l"></div><div class="line s"></div></aside></div></div></div>
+        <p class="meta">Strong clarity, restrained accents, proof path above the fold.</p>
+      </article>
+
+      <article class="card" data-kind="editorial">
+        <header class="card-head"><strong>Direction 02: Technical Editorial</strong><span class="tag">EDITORIAL</span></header>
+        <div class="preview"><div class="mock"><div class="topbar"><span class="pill">Project / Architecture / ADR</span></div><div class="layout" style="grid-template-columns: 1fr"><main class="main"><div class="block accent"><div class="line l"></div><div class="line m"></div></div><div class="block"><span class="pill">Decision</span><span class="pill">Trade-off</span><div class="line l"></div><div class="line l"></div></div><div class="block"><span class="pill">Related Artifacts</span><div class="line m"></div></div></main></div></div></div>
+        <p class="meta">Long-form readability with diagram-first narrative blocks.</p>
+      </article>
+
+      <article class="card" data-kind="dense">
+        <header class="card-head"><strong>Direction 03: Graph Console</strong><span class="tag">DENSE</span></header>
+        <div class="preview"><div class="mock"><div class="topbar"><span class="pill">artifact graph</span><span class="pill">live context</span></div><div class="layout" style="grid-template-columns: 3fr 6fr 3fr"><aside class="side"><div class="block"><div class="line m"></div><div class="line s"></div></div></aside><main class="main"><div class="block accent"><div class="line l"></div><div class="line l"></div><div class="line m"></div></div><div class="block"><div class="line l"></div><div class="line s"></div></div></main><aside class="panel"><div class="block"><span class="pill">status</span><div class="line s"></div><div class="line m"></div></div></aside></div></div></div>
+        <p class="meta">High information density for advanced users and deep traversals.</p>
+      </article>
+
+      <article class="card" data-kind="balanced">
+        <header class="card-head"><strong>Direction 04: Breadcrumb First</strong><span class="tag">BALANCED</span></header>
+        <div class="preview"><div class="mock"><div class="topbar"><span class="pill">Project</span><span class="pill">Architecture</span><span class="pill">ADR</span><span class="pill">Repo</span></div><div class="layout" style="grid-template-columns: 8fr 4fr"><main class="main"><div class="block accent"><div class="line l"></div><div class="line m"></div></div><div class="block"><div class="line l"></div><div class="line l"></div></div></main><aside class="panel"><div class="line m"></div><div class="line l"></div><div class="line m"></div></aside></div></div></div>
+        <p class="meta">Navigation confidence prioritized through persistent chain context.</p>
+      </article>
+
+      <article class="card" data-kind="editorial">
+        <header class="card-head"><strong>Direction 05: Diagram Authority</strong><span class="tag">EDITORIAL</span></header>
+        <div class="preview"><div class="mock"><div class="topbar"><span class="pill">Architecture Overview</span></div><div class="layout" style="grid-template-columns: 1fr"><main class="main"><div class="block accent" style="min-height:120px"><span class="pill">diagram</span><div class="line l"></div><div class="line m"></div></div><div class="block"><span class="pill">Decision</span><div class="line l"></div></div><div class="block"><span class="pill">Implementation</span><div class="line m"></div></div></main></div></div></div>
+        <p class="meta">Architecture visual takes primacy before deep text blocks.</p>
+      </article>
+
+      <article class="card" data-kind="dense">
+        <header class="card-head"><strong>Direction 06: Context Matrix</strong><span class="tag">DENSE</span></header>
+        <div class="preview"><div class="mock"><div class="topbar"><span class="pill">context matrix</span></div><div class="layout" style="grid-template-columns: 4fr 4fr 4fr"><main class="main"><div class="block"><div class="line l"></div><div class="line m"></div></div></main><main class="main" style="border-left:1px solid #202736;border-right:1px solid #202736"><div class="block accent"><div class="line l"></div><div class="line l"></div></div></main><main class="main"><div class="block"><div class="line m"></div><div class="line s"></div></div></main></div></div></div>
+        <p class="meta">Three-column parity for simultaneous architecture/ADR/repo scanning.</p>
+      </article>
+
+      <article class="card" data-kind="balanced">
+        <header class="card-head"><strong>Direction 07: Quiet Authority</strong><span class="tag">BALANCED</span></header>
+        <div class="preview"><div class="mock"><div class="topbar"><span class="pill">proof-ready</span></div><div class="layout" style="grid-template-columns: 2fr 10fr"><aside class="side"><div class="line s"></div><div class="line m"></div></aside><main class="main"><div class="block"><span class="pill">ADR-014</span><span class="pill">Repo Link</span><div class="line l"></div></div><div class="block accent"><div class="line l"></div><div class="line s"></div></div></main></div></div></div>
+        <p class="meta">Low-noise visual system emphasizing trust and legibility.</p>
+      </article>
+
+      <article class="card" data-kind="editorial">
+        <header class="card-head"><strong>Direction 08: Guided Proof Path</strong><span class="tag">EDITORIAL</span></header>
+        <div class="preview"><div class="mock"><div class="topbar"><span class="pill">step 1</span><span class="pill">step 2</span><span class="pill">step 3</span><span class="pill">step 4</span></div><div class="layout" style="grid-template-columns: 1fr"><main class="main"><div class="block accent"><span class="pill">Architecture</span><div class="line l"></div></div><div class="block"><span class="pill">ADR</span><div class="line l"></div></div><div class="block"><span class="pill">Repo</span><div class="line l"></div></div><div class="block"><span class="pill">Article</span><div class="line l"></div></div></main></div></div></div>
+        <p class="meta">Explicit guided journey optimized for first-time credibility validation.</p>
+      </article>
+    </section>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('#filters button');
+    const cards = document.querySelectorAll('.card');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        cards.forEach(c => {
+          c.classList.toggle('hidden', !(f === 'all' || c.dataset.kind === f));
+        });
+      });
+    });
+  </script>
+</body>
+</html>

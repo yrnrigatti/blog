@@ -1,0 +1,107 @@
+# generated: 2026-03-08
+# project: blog
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: {project-root}/_bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog -> in-progress: Automatically when first story is created (via create-story)
+#   - in-progress -> done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2026-03-08
+project: blog
+project_key: NOKEY
+tracking_system: file-system
+story_location: "{project-root}/_bmad-output/implementation-artifacts"
+
+development_status:
+  epic-1: in-progress
+  1-1-set-up-initial-project-from-starter-template: done
+  1-2-implement-stable-artifact-id-and-route-rules: backlog
+  1-3-create-astro-content-collections-for-core-artifacts: backlog
+  1-4-define-directional-and-typed-artifact-relation-model: backlog
+  1-5-implement-forward-and-reverse-artifact-resolvers: backlog
+  1-6-generate-artifact-detail-pages-from-content: backlog
+  1-7-build-artifact-registry-pages-with-deterministic-ordering: backlog
+  1-8-enforce-pr-based-publishing-workflow-with-ci-gates: backlog
+  1-9-implement-artifact-schema-versioning-and-migration-readiness: backlog
+  epic-1-retrospective: optional
+  epic-2: backlog
+  2-1-implement-proof-path-route-skeleton: backlog
+  2-2-build-artifact-context-header-and-breadcrumb-chain: backlog
+  2-3-implement-related-artifacts-panel-with-mandatory-next-step: backlog
+  2-4-implement-architecture-page-with-diagram-rendering-and-labels: backlog
+  2-5-enable-component-to-adr-linking-from-architecture: backlog
+  2-6-implement-adr-page-structure-for-decision-clarity: backlog
+  2-7-implement-typed-implementation-evidence-blocks: backlog
+  2-8-support-narrative-embedding-of-structured-relations: backlog
+  2-9-end-to-end-proof-path-validation-and-recovery-states: backlog
+  epic-2-retrospective: optional
+  epic-3: backlog
+  3-1-implement-artifact-graph-integrity-rule-engine: backlog
+  3-2-detect-missing-and-orphaned-relations: backlog
+  3-3-detect-proof-path-dead-ends-with-terminal-exceptions: backlog
+  3-4-add-local-pre-publish-integrity-validation-command: backlog
+  3-5-enforce-ci-integrity-gate-with-severity-levels: backlog
+  3-6-ensure-safe-artifact-editing-and-id-protection: backlog
+  3-7-implement-scheduled-integrity-audit-and-reporting: backlog
+  3-8-implement-integrity-recovery-workflow-with-full-revalidation: backlog
+  epic-3-retrospective: optional
+  epic-4: backlog
+  4-1-implement-projects-registry-page: backlog
+  4-2-implement-architecture-registry-and-entry-points: backlog
+  4-3-implement-adr-registry-with-drill-down: backlog
+  4-4-implement-articles-registry-page: backlog
+  4-5-enforce-registry-consistency-and-discovery-contracts: backlog
+  epic-4-retrospective: optional
+  epic-5: backlog
+  5-1-build-static-search-index-at-build-time: backlog
+  5-2-implement-search-query-service: backlog
+  5-3-implement-search-ui-across-discovery-surfaces: backlog
+  5-4-define-deterministic-search-ranking-and-no-result-behavior: backlog
+  5-5-validate-search-coverage-and-index-completeness: backlog
+  epic-5-retrospective: optional
+  epic-6: backlog
+  6-1-define-canonical-locale-contract-and-routing: backlog
+  6-2-implement-localized-artifact-pairing-with-fallback: backlog
+  6-3-add-canonical-and-hreflang-metadata-for-localized-pages: backlog
+  6-4-generate-locale-aware-crawl-assets-and-sitemaps: backlog
+  6-5-enforce-semantic-structure-and-landmark-contracts: backlog
+  6-6-guarantee-keyboard-navigation-for-required-core-flows: backlog
+  6-7-enforce-alt-text-and-diagram-textual-equivalents: backlog
+  6-8-add-accessibility-and-i18n-ci-quality-gates: backlog
+  epic-6-retrospective: optional
+  epic-7: backlog
+  7-1-generate-rss-feed-for-artifact-linked-publications: backlog
+  7-2-generate-structured-artifact-manifest-json: backlog
+  7-3-expose-typed-relationship-context-in-outputs: backlog
+  7-4-add-output-schema-versioning-strategy: backlog
+  7-5-enforce-output-contract-validation-in-ci: backlog
+  7-6-implement-qualified-inbound-signal-logging: backlog
+  7-7-add-lightweight-signal-reporting-and-analysis: backlog
+  epic-7-retrospective: optional
