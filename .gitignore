@@ -17,6 +17,10 @@ pnpm-debug.log*
 .env
 .env.production
 
+# pact contract testing artifacts
+/pacts/
+pact-logs/
+
 # macOS-specific files
 .DS_Store
 

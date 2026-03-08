@@ -1,0 +1,14 @@
+#!/bin/bash
+# Publish generated pact files to Pact Broker.
+# -e: exit on error  -u: error on undefined vars  -o pipefail: fail if any piped command fails
+set -euo pipefail
+
+. ./scripts/env-setup.sh
+
+PACT_DIR="./pacts"
+
+pact-broker publish "$PACT_DIR" \
+  --consumer-app-version="$GITHUB_SHA" \
+  --branch="$GITHUB_BRANCH" \
+  --broker-base-url="$PACT_BROKER_BASE_URL" \
+  --broker-token="$PACT_BROKER_TOKEN"
